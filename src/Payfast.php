@@ -107,7 +107,7 @@ class Payfast implements PaymentProcessor
 
 
         $this->button = $submitButton;
-        $this->vars = $this->paymentVars($type, $options = null);
+        $this->vars = $this->paymentVars($type, $options);
         $this->buildQueryString();
         $this->vars['signature'] = md5($this->output);
         return $this->buildForm();
@@ -157,7 +157,7 @@ class Payfast implements PaymentProcessor
         */
 
         if ($type == "subscription" && $options != null) {
-            array_merge($this->payment_inputs, $options);
+           $this->payment_inputs =  array_merge($this->payment_inputs, $options);
         }
 
         return array_merge($this->merchant, $this->buyer, $this->payment_inputs);
@@ -172,6 +172,8 @@ class Payfast implements PaymentProcessor
             }
         }
         $this->output = substr( $this->output, 0, -1 );
+
+        $passPhrase = config('payfast.merchant.pass_phrase');
         if( isset( $passPhrase ) )
         {
             $this->output .= '&passphrase='.$passPhrase;
