@@ -173,7 +173,7 @@ class Payfast implements PaymentProcessor
         }
         $this->output = substr( $this->output, 0, -1 );
 
-        $passPhrase = config('payfast.merchant.pass_phrase');
+        $passPhrase = config('payfast.pass_phrase');
         if( isset( $passPhrase ) )
         {
             $this->output .= '&passphrase='.$passPhrase;

@@ -19,8 +19,9 @@ return
         'return_url' => env('PF_RETURN_URL', 'http://your-domain.co.za/success'), // Redirect URL on Success.
         'cancel_url' => env('PF_CANCEL_URL', 'http://your-domain.co.za/cancel'), // Redirect URL on Cancellation.
         'notify_url' => env('PF_ITN_URL', 'http://your-domain.co.za/itn'), // ITN URL.
-        'pass_phrase' => env('PF_PASS_PHRASE', ''), // ITN URL.
+       
     ],
+    'pass_phrase' => env('PF_PASS_PHRASE', ''), // pass phrase
 
     'hosts' => [
         'www.payfast.co.za',
